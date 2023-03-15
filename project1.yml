@@ -19,17 +19,4 @@
          name: httpd
          state: started
 
-     - name: check that a page return a status 200 and fail if the word hello is not in the contents
-       uri:
-         url: http://10.184.0.23
-         return_content: true
-       register: this
 
-     - name: DEBUG
-       debug:
-         var: this.content
-       failed_when: "'USER' not in this.content"
-
-     - name: Show Facts available on the system
-       debug:
-         var: ansible_facts
